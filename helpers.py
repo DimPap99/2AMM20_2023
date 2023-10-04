@@ -2,7 +2,7 @@ import pandas as pd
 import csv
 
 
-def read_csv(file_path:str, ret_Dataframe=False, verbose=False):
+def read_csv(file_path:str, ret_Dataframe=False, verbose=False, drop_header=False):
     try:
         if verbose:
             print(f"Reading the csv file: {file_path}")
@@ -15,6 +15,10 @@ def read_csv(file_path:str, ret_Dataframe=False, verbose=False):
                 for row in csvreader:
                     data.append(row)
         print("Finished reading csv file...")
+        if drop_header is True:
+            return data[1:]
+        else:
+            return data
     except Exception as err:
         print(f"An error occured while attempting to read: {file_path}")
         print(err)
