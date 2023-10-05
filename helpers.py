@@ -1,6 +1,26 @@
 import pandas as pd
 import csv
+import pickle
 
+def pickle_data(file_path, obj, verbose=False):
+    try:
+        with open(file_path, 'wb') as f:
+            pickle.dump(obj)
+        if verbose:
+            print(f"Succesfully pickled the object on file {file_path}")
+    except Exception as e:
+        print(f"An exception occured while pickling an object:\n{e}")
+
+def load_pickled_data(file_path, verbose=False):
+    try:
+        data = None
+        with open(file_path, 'rb') as f:
+            data = pickle.load(f)
+        if verbose:
+            print(f"Succesfully loaded a pickled object from file {file_path}")
+        return data
+    except Exception as e:
+        print(f"An exception occured while loading a pickled object:\n{e}")
 
 def read_csv(file_path:str, ret_Dataframe=False, verbose=False, drop_header=False):
     try:
