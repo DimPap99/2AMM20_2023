@@ -66,5 +66,46 @@ def export_csv(file_path:str, data, isDataframe = False, headers=None, delimiter
         print(f"An error occured while attempting to write to: {file_path}")
         print(err)
 
-  
+
+def get_class_pairs(graph, edge_pairs):
+    class_pairs = {}
+    cls_p = []
+    for pair in edge_pairs:
+        n = int(pair[1])
+        cls_p.append(graph.nodes[n].label)
+    return cls_p
+
+from collections import defaultdict, deque
+
+def choose_node_based_on_neighbors(graph, n, only_children=True, label=None):
+    num_of_neighbors = n
+    node = None
+    for key, value in graph.nodes.items():
+        txId = key
+        node = value
+        if label is None:
+            if node.get_num_of_neighbors(only_children=only_children) == n:
+                break
+        else:
+            if label == label and node.get_num_of_neighbors(only_children=only_children) >= n:
+                break
+    return node
     
+def bfs(graph, start, keep_direction=False):
+            """
+                Simple bfs implementation for dataset exploration. Also keeps a set of all node members 
+            """
+            visited = set()
+            queue = deque([start])
+            pairs = set()
+            
+            while queue:
+                node_txId = queue.popleft()
+                if node_txId not in visited:
+                    visited.add(node_txId)
+                    neighbors = graph.nodes[node_txId].total_neighbors() if not keep_direction else graph.nodes[node_txId].children
+                    for neighbor in neighbors:
+                        pairs.add((node_txId, neighbor))
+                        if neighbor not in visited:
+                            queue.append(neighbor)
+            return pairs, visited

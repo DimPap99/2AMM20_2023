@@ -17,7 +17,7 @@ def join_information_accross_datasets(keep_graphs_by_step=False):
     for row in txs_features:
         node = Node(feats=row)
         superset_graph.add_Node(node)
-        timestep = row[1]
+        timestep = int(row[1])
         if timestep not in split_on_timestep:
             split_on_timestep[timestep] = Graph()
         else:
@@ -25,14 +25,14 @@ def join_information_accross_datasets(keep_graphs_by_step=False):
     
     #assign class to nodes
     for row in txs_classes:
-        txId = row[0]
+        txId = int(row[0])
     
         if txId in superset_graph.nodes:
             superset_graph.nodes[txId].label = int(row[1])
     #find neighboring nodes
     for row in txs_edgelist:
-        current_txId = row[0]
-        neighboring_txId = row[1]
+        current_txId = int(row[0])
+        neighboring_txId = int(row[1])
         if current_txId in superset_graph.nodes and neighboring_txId in superset_graph.nodes:
             superset_graph.add_edge(current_txId, neighboring_txId)
     pickle_data("superset_graph.pkl", superset_graph, True)
@@ -61,19 +61,19 @@ def analyse_graphs(superset_graph, split_on_timestep=None, export_to_txt=False):
         with open("supertset_graph.txt", 'w') as f:
             f.write(superset_str)
         
-#join_information_accross_datasets()
+join_information_accross_datasets()
 
 
-txs_classes:pd.DataFrame = read_csv(os.path.join(DATASET_BASE, "elliptic_txs_classes.csv"), ret_Dataframe=True)
-txs_edgelist:pd.DataFrame = read_csv(os.path.join(DATASET_BASE, "elliptic_txs_edgelist.csv"), ret_Dataframe=True)
-txs_features:pd.DataFrame =  read_csv(os.path.join(DATASET_BASE, "elliptic_txs_features.csv"), ret_Dataframe=True)
+# txs_classes:pd.DataFrame = read_csv(os.path.join(DATASET_BASE, "elliptic_txs_classes.csv"), ret_Dataframe=True)
+# txs_edgelist:pd.DataFrame = read_csv(os.path.join(DATASET_BASE, "elliptic_txs_edgelist.csv"), ret_Dataframe=True)
+# txs_features:pd.DataFrame =  read_csv(os.path.join(DATASET_BASE, "elliptic_txs_features.csv"), ret_Dataframe=True)
 
-txs_by_class = txs_classes.groupby('class').count()
+# txs_by_class = txs_classes.groupby('class').count()
 
 # merge_feats_class = pd.merge(txs_features, txs_classes, on='txId')
 # graph_merged = pd.merge(merge_feats_class, txs_edgelist, left_on='txId', right_on='txId1')
 # pickle_data("merged_dataframe.pkl", graph_merged, True)
 
-print(txs_by_class)
+# print(txs_by_class)
 #visualize_graph(merge_feats_class, txs_edgelist, 20)
 
