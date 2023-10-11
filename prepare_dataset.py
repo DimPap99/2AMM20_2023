@@ -1,7 +1,8 @@
 from helpers import read_csv, export_csv, pickle_data, load_pickled_data
 from Graph import Graph, Node
 import os
-
+import pandas as pd
+from visualizations import visualize_graph
 DATASET_BASE = "dataset"
 
 #Prepare two datasets. 1 with all the connected nodes. 1 with all the connected nodes that belong to either class 1 or 2
@@ -60,4 +61,19 @@ def analyse_graphs(superset_graph, split_on_timestep=None, export_to_txt=False):
         with open("supertset_graph.txt", 'w') as f:
             f.write(superset_str)
         
-join_information_accross_datasets()
+#join_information_accross_datasets()
+
+
+txs_classes:pd.DataFrame = read_csv(os.path.join(DATASET_BASE, "elliptic_txs_classes.csv"), ret_Dataframe=True)
+txs_edgelist:pd.DataFrame = read_csv(os.path.join(DATASET_BASE, "elliptic_txs_edgelist.csv"), ret_Dataframe=True)
+txs_features:pd.DataFrame =  read_csv(os.path.join(DATASET_BASE, "elliptic_txs_features.csv"), ret_Dataframe=True)
+
+txs_by_class = txs_classes.groupby('class').count()
+
+# merge_feats_class = pd.merge(txs_features, txs_classes, on='txId')
+# graph_merged = pd.merge(merge_feats_class, txs_edgelist, left_on='txId', right_on='txId1')
+# pickle_data("merged_dataframe.pkl", graph_merged, True)
+
+print(txs_by_class)
+#visualize_graph(merge_feats_class, txs_edgelist, 20)
+

@@ -5,7 +5,7 @@ import pickle
 def pickle_data(file_path, obj, verbose=False):
     try:
         with open(file_path, 'wb') as f:
-            pickle.dump(obj)
+            pickle.dump(obj, f)
         if verbose:
             print(f"Succesfully pickled the object on file {file_path}")
     except Exception as e:
