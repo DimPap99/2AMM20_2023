@@ -67,11 +67,11 @@ def export_csv(file_path:str, data, isDataframe = False, headers=None, delimiter
         print(err)
 
 
-def get_class_pairs(graph, edge_pairs):
+def get_class_pairs(graph, visited_nodes):
     class_pairs = {}
     cls_p = []
-    for pair in edge_pairs:
-        n = int(pair[1])
+    for n in visited_nodes:
+        
         cls_p.append(graph.nodes[n].label)
     return cls_p
 

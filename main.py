@@ -6,7 +6,8 @@ import plotly
 import chart_studio.plotly as py
 import plotly.graph_objects as go
 import os, sys
-
+from helpers import bfs, get_class_pairs, choose_node_based_on_neighbors
+import numpy as np
 
 TIMESTEP = 20
 DATASET_BASE = "dataset"
@@ -40,8 +41,7 @@ graph_of_interest.create_from_lists(timestep_list, edge_list)
 #check node with max children. (ONLY Children)
 max_children = 0
 node_of_interest:Node = None
-from helpers import bfs, get_class_pairs, choose_node_based_on_neighbors
-import numpy as np
+
 neigh = 18
 node_of_interest:Node = choose_node_based_on_neighbors(graph_of_interest, neigh, label=1)
 if node_of_interest is not None:
@@ -64,15 +64,7 @@ if node_of_interest is not None:
         p.append(graph_of_interest.nodes[n].label)
        
     df1 = pd.DataFrame(nodes_n_classes, columns=['txId', 'class'])
-    # print(df1)
-    #visualize_graph_df(df1, txs_edgelist, f"Graph in timestep {TIMESTEP} that includes the node {node_of_interest.txId} and {neigh} neighbors")
-    # print(len(visited_nodes))
-    #cls_pairs = list(get_class_pairs(graph_of_interest, pairs))
-    #print(len(cls_pairs))
-    # total_disjoint_graphs.append([pairs, cls_pairs])
-    # total_nodes.difference_update(total_nodes, visited_nodes)
-    # print(len(total_disjoint_graphs))
-    #print(len(cls_pairs))
+  
     visualize_graph_from_list(p, pairs, f"Graph in timestep {TIMESTEP} that includes the node {node_of_interest.txId} and {neigh} neighbors")
 
     
