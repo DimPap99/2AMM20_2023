@@ -218,8 +218,8 @@ def find_best_fitted_dist_for_features(feature_df:pd.DataFrame, _bins):
 
 
 
-def quality_score(dataframe:pd.DataFrame, subgraph:set, weights_df:pd.DataFrame):
-    pass
+# def quality_score(dataframe:pd.DataFrame, subgraph:set, weights_df:pd.DataFrame):
+#     pass
 
 def create_nx_graph(df_txs_features, df_txs_edgelist):
     all_ids = df_txs_features['txId']
@@ -256,14 +256,13 @@ def create_nx_graph(df_txs_features, df_txs_edgelist):
 
 
 
-def P(feature, feature_categories_count):
-    pass
+    
 
 
 
-def discretize_per_column(df:pd.DataFrame):
+def discretize_per_column(df:pd.DataFrame, min_d, min_s, save_p=True):
     discretiser = MDLPSupervisedDiscretiserMethod(
-        {"min_depth": 5, "random_state": 2020, "min_split": 0, "dtype": int}
+        {"min_depth": min_d, "random_state": 2020, "min_split": min_s, "dtype": int}
         )
 
     freq_per_feat = {}
@@ -277,8 +276,11 @@ def discretize_per_column(df:pd.DataFrame):
             target_continuous=False,
             )
             data = discretiser.transform(df[[col]])
+            df[col] = discretiser.transform(df[[col]])
+
             freq_per_feat[col] =  dict(collections.Counter(data.values.ravel()))
             print(freq_per_feat[col])
-
-    pickle_data('frequencies.pkl', freq_per_feat)
-    return freq_per_feat
+    if save_p:
+        pickle_data('frequencies.pkl', freq_per_feat)
+        pickle_data('discretized_df.pkl', df)
+    return freq_per_feat, df

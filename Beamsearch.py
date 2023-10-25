@@ -1,8 +1,8 @@
 import numpy as np
+import math
+from Graph import Graph, Node, Subgraph, dataclasses
 
-from Graph import Graph, Node
-
-def beam_search(graph:Graph, beam_width=3):
+def beam_search(graph:Graph, threshold, beam_width=3, initial_candidates:Subgraph=None):
     """
     Perform beam search for graph mining to find frequent subgraphs.
 
@@ -16,39 +16,46 @@ def beam_search(graph:Graph, beam_width=3):
     - A list of frequent subgraphs.
     """
 
+    CAN_EXPAND_MORE = True
     # Initialize the beam with single nodes as candidates
-    beam = [(set([node]), 0)]
+    beam = initial_candidates
 
-    frequent_subgraphs = []
-
+    interesting_subgraphs = []
+    #while CAN_EXPAND_MORE:
+        
     # Iterate over the pattern size
-    for pattern_size in range(1, max_pattern_size + 1):
-        new_beam = []
-
-        # Generate candidates for each current subgraph in the beam
-        for subgraph, support in beam:
+    new_beam = []
+    subgraph_can_be_expanded = [True] * len(beam)
+    # Generate candidates for each current subgraph in the beam
+    for i in range(0, len(beam) -1 ):
+        if subgraph_can_be_expanded[i]:
+            subgraph:Subgraph = beam[i]
             # Generate candidate subgraphs
-            candidates = generate_candidates(subgraph, graph)
-
+            candidates = generate_candidate_subgraph(subgraph, graph)
+            if len(candidates) == 0:
+                subgraph_can_be_expanded[i] = False
             for candidate in candidates:
-                # Count support for the candidate subgraph
-                candidate_support = count_support(candidate, graph)
+                # merge the candidate subgraphs with the original subgraph until they are all merge or until
+                # the quality score reduces
+                
+                prev_quality = subgraph.quality
+                subgraph.merge(candidate, graph, threshold)
+                if subgraph.quality >= prev_quality:
+                    beam[i] = subgraph
+                else:
+                    break
+                    
 
-                if candidate_support >= min_support:
-                    new_subgraph = candidate
-                    new_support = candidate_support
-                    new_beam.append((new_subgraph, new_support))
+            # Select the top candidates based on support
+            new_beam.sort(key=lambda x: x[1], reverse=True)
+            beam = new_beam[:beam_width]
 
-        # Select the top candidates based on support
-        new_beam.sort(key=lambda x: x[1], reverse=True)
-        beam = new_beam[:beam_width]
+            # Store frequent subgraphs of the current size
+            interesting_subgraphs.extend([(subgraph, support) for subgraph, support in beam])
+    
+    return interesting_subgraphs
 
-        # Store frequent subgraphs of the current size
-        frequent_subgraphs.extend([(subgraph, support) for subgraph, support in beam])
-
-    return frequent_subgraphs
-
-def generate_candidates(subgraph, graph):
+def generate_candidate_subgraph(subgraph:Subgraph, graph:Graph, threshold:float, beam_width):
     """
     Generate candidate subgraphs from the current subgraph.
 
@@ -59,38 +66,47 @@ def generate_candidates(subgraph, graph):
     Returns:
     - A list of candidate subgraphs.
     """
+    candidate_subgraphs = []
+    current_quality = subgraph.calculate_quality(graph=graph, threshold=threshold)
+
+    
     # Implement this function to generate candidate subgraphs.
-    pass
+    for candidate in subgraph.open:
+        #add one of the neighbors of the original subgraph into a new temp subgraph
+        #and calculate quality
 
-def count_support(subgraph, graph):
+        temporary_subgraph:Subgraph = dataclasses.replace(subgraph)
+        temporary_subgraph.closed.add(candidate)
+        temp_subgraph_score = temporary_subgraph.calculate_quality(graph=graph, threshold=threshold)
+        #if the new subgraph has better quality than the original one add it to the candidates
+        if temp_subgraph_score >= current_quality:
+            temporary_subgraph.open.remove(candidate)
+            candidate_children:set = graph.nodes[candidate].children
+            #the children of the candidate to the open set
+            temporary_subgraph.open.union(candidate_children)
+            candidate_subgraphs.append(temporary_subgraph)
+        else:
+            del temporary_subgraph
+            continue
+    #sort the candidate subgraphs based on the subgraph quality
+    #and keep the k best subgraphs (based on beam width)
+    if len(candidate_subgraphs) > 0:
+        candidate_subgraphs.sort(key=lambda x: x.quality, reverse=True)
+        if len(candidate_subgraphs) >= beam_width:
+            return candidate_subgraphs[0:beam_width]
+        
+    return candidate_subgraphs
+        
+
+
+def merge_subgraphs(graph:Graph, subgraph:Subgraph, candidate_subgraph:Subgraph, threshold):
     """
-    Count the support (frequency) of a subgraph in the graph.
+    Merges an original subgraphs with subgraphs that
+    have been generated from it and raise the total quality measure.
 
-    Parameters:
-    - subgraph: The subgraph to count support for.
-    - graph: The input graph represented as an adjacency matrix.
-
-    Returns:
-    - The support count of the subgraph.
     """
-    # Implement this function to count support.
-    pass
+    subgraph.open.union(candidate_subgraph.open)
+    subgraph.closed.union(candidate_subgraph.closed)
+    subgraph.calculate_quality(graph, threshold)
+    return subgraph
 
-# Example usage
-if __name__ == "__main__":
-    # Create a sample adjacency matrix for the graph
-    graph = np.array([[0, 1, 1, 0],
-                     [1, 0, 1, 1],
-                     [1, 1, 0, 0],
-                     [0, 1, 0, 0]])
-
-    max_pattern_size = 3
-    beam_width = 3
-    min_support = 2
-
-    frequent_subgraphs = beam_search(graph, max_pattern_size, beam_width, min_support)
-
-    print("Frequent Subgraphs:")
-    for subgraph, support in frequent_subgraphs:
-        print("Subgraph:", subgraph)
-        print("Support:", support)

@@ -1,3 +1,6 @@
+import math
+BASE = math.e
+from ordered_set import OrderedSet
 
 class Node(object):
     """
@@ -64,7 +67,15 @@ class Graph(object):
         if node.txId not in self.nodes:
             self.nodes[node.txId] = node
             self.node_txId_set.add(node.txId)
-
+    def get_step_initial_nodes(self):
+        candidates = set()
+        for key, value in self.nodes.items():
+            node:Node = value
+            #no Parrent and at least 1 child
+            if len(node.parents) == 0 and len(node.children) >= 1:
+                candidates.add(key)
+        return candidates
+    
     def get_total_nodes(self):
         return len(self.nodes.keys())
 
@@ -94,7 +105,7 @@ class Graph(object):
         for edge in edge_list:
             curr_txId = int(edge[0])
             neighbor = int(edge[1])
-            if curr_txId in self.nodes:
+            if neighbor in self.nodes and curr_txId in self.nodes:
                 self.add_edge(curr_txId, neighbor)
 
     def add_edge(self, current_txId, neighbor_txId):
@@ -150,26 +161,34 @@ class Graph(object):
 
 def P(g:Graph, feature, feature_value):
     counts:dict = g.feature_occurences[feature]
-    total_category_occurences = counts[feature][feature_value]
-    total_samples = sum(counts[feature].values())
+    total_category_occurences = counts[feature_value]
+    total_samples = sum(g.feature_occurences[feature].values())
     return total_category_occurences/total_samples
 
 def TD(threshold, g:Graph, feature, feature_value):
-    return threshold - P(g, feature, feature_value)
+    poss =  P(g, feature, feature_value)
+    return threshold - poss
+import dataclasses
 
-from dataclasses import dataclass
-from helpers import P 
-@dataclass                    
+@dataclasses.dataclass                    
 class Subgraph:
-    open: set = set()
-    closed: set = set()
+    open: set = dataclasses.field(default_factory=set) 
+    closed: set = dataclasses.field(default_factory=set) 
     quality: float = 0
-    
-    threshold: float = 0.25
+
     def calculate_quality(self, graph:Graph, threshold) -> float:
         score = 0
-        for key, value in range(graph.feature_importances):
+        for key, value in graph.feature_importances.items():
             for txId in self.closed:
-                current_node_feature_value = graph[txId].features[key]
+                current_node_feature_value = graph.nodes[txId].features[key]
                 td_val = TD(threshold, graph, key, current_node_feature_value)
-                score += td_val * (1 + value) 
+                score += td_val * (1 + value) - math.log(len(self.closed), BASE)
+        self.quality = score
+        return score
+    
+
+    def merge(self, subgraph, graph:Graph, threshold):
+        self.open.union(subgraph.open)
+        self.closed.union(subgraph.closed)
+        self.calculate_quality(graph, threshold)
+        
