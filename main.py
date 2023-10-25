@@ -23,19 +23,40 @@ df:pd.DataFrame = load_pickled_data("discretized_df.pkl")
 main_graph:Graph = load_pickled_data("working_graph.pkl")
 
 initial_beamsearch_candidates = main_graph.get_step_initial_nodes()
-print(len(initial_beamsearch_candidates))
+
 beam_candidates = []
+
 for candidate in initial_beamsearch_candidates:
     s = Subgraph()
     s.closed.add(candidate)
-    
     s.quality = s.calculate_quality(main_graph, THRESHOLD)
     if s.quality > 0:
+        candidate_children:set = main_graph.nodes[candidate].children
+        s.open = s.open.union(candidate_children)
         beam_candidates.append(s)
+interesting_graphs, rejected_candidates = beam_search(graph=main_graph, threshold=THRESHOLD, beam_width=4, initial_candidates=beam_candidates)
+beam_candidates = []
 
-print(len(beam_candidates))
+while len(rejected_candidates) != 0:
+    for candidate in rejected_candidates:
+        s = Subgraph()
+        s.closed.add(candidate)
+        s.quality = s.calculate_quality(main_graph, THRESHOLD)
+        if s.quality > 0:
+            candidate_children:set = main_graph.nodes[candidate].children
+            s.open = s.open.union(candidate_children)
+            beam_candidates.append(s)
 
-beam_search(main_graph, 4, beam_candidates)
+    subgraph_results, new_rejected_candidates = beam_search(graph=main_graph, threshold=THRESHOLD, beam_width=4, initial_candidates=beam_candidates)
+    interesting_graphs = interesting_graphs + subgraph_results
+    rejected_candidates = new_rejected_candidates.difference(rejected_candidates)
+    beam_candidates = []
 
-
-
+sz_dict = {}
+for subgraph in interesting_graphs:
+    l = len(subgraph.closed)
+    if l not in sz_dict:
+        sz_dict[l] = 1
+    else:
+        sz_dict[l]+=1
+print(sz_dict)

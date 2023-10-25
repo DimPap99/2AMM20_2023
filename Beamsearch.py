@@ -18,42 +18,44 @@ def beam_search(graph:Graph, threshold, beam_width=3, initial_candidates:Subgrap
 
     CAN_EXPAND_MORE = True
     # Initialize the beam with single nodes as candidates
-    beam = initial_candidates
+    subgraph_candidates = initial_candidates
 
     interesting_subgraphs = []
     #while CAN_EXPAND_MORE:
-        
+    rejected_candidates = set()
     # Iterate over the pattern size
     new_beam = []
-    subgraph_can_be_expanded = [True] * len(beam)
-    # Generate candidates for each current subgraph in the beam
-    for i in range(0, len(beam) -1 ):
-        if subgraph_can_be_expanded[i]:
-            subgraph:Subgraph = beam[i]
+    iterations = 0
+    while len(subgraph_candidates) > 0:
+        # Generate candidates for each current subgraph in the beam
+        for i in range(0, len(subgraph_candidates) ):
+            subgraph:Subgraph = subgraph_candidates[i]
+            
             # Generate candidate subgraphs
-            candidates = generate_candidate_subgraph(subgraph, graph)
-            if len(candidates) == 0:
-                subgraph_can_be_expanded[i] = False
-            for candidate in candidates:
+            generated_candidates = generate_candidate_subgraph(subgraph=subgraph, graph=graph, threshold=threshold, beam_width=beam_width)
+            if len(generated_candidates) == 0:
+                subgraph_candidates[i].can_be_expanded = False
+            for candidate in generated_candidates:
                 # merge the candidate subgraphs with the original subgraph until they are all merge or until
                 # the quality score reduces
                 
                 prev_quality = subgraph.quality
+                # if(len(subgraph.closed) > 100):
+                #     print("t")
                 subgraph.merge(candidate, graph, threshold)
-                if subgraph.quality >= prev_quality:
-                    beam[i] = subgraph
+                if subgraph.quality > prev_quality:
+                    subgraph_candidates[i] = subgraph
                 else:
-                    break
-                    
+                    rejected_candidates.add(candidate.closed[-1])
+                        
 
-            # Select the top candidates based on support
-            new_beam.sort(key=lambda x: x[1], reverse=True)
-            beam = new_beam[:beam_width]
+        
+            
+        interesting_subgraphs = interesting_subgraphs + [x for x in subgraph_candidates if x.can_be_expanded == False]
+        subgraph_candidates = [x for x in subgraph_candidates if x.can_be_expanded == True]
+        iterations += 1
 
-            # Store frequent subgraphs of the current size
-            interesting_subgraphs.extend([(subgraph, support) for subgraph, support in beam])
-    
-    return interesting_subgraphs
+    return interesting_subgraphs, rejected_candidates
 
 def generate_candidate_subgraph(subgraph:Subgraph, graph:Graph, threshold:float, beam_width):
     """
@@ -71,19 +73,21 @@ def generate_candidate_subgraph(subgraph:Subgraph, graph:Graph, threshold:float,
 
     
     # Implement this function to generate candidate subgraphs.
-    for candidate in subgraph.open:
+    for candidate in subgraph.open.copy():
         #add one of the neighbors of the original subgraph into a new temp subgraph
         #and calculate quality
 
         temporary_subgraph:Subgraph = dataclasses.replace(subgraph)
         temporary_subgraph.closed.add(candidate)
         temp_subgraph_score = temporary_subgraph.calculate_quality(graph=graph, threshold=threshold)
+        temporary_subgraph.open.remove(candidate)
         #if the new subgraph has better quality than the original one add it to the candidates
         if temp_subgraph_score >= current_quality:
-            temporary_subgraph.open.remove(candidate)
             candidate_children:set = graph.nodes[candidate].children
-            #the children of the candidate to the open set
-            temporary_subgraph.open.union(candidate_children)
+            for child in candidate_children:
+                if child not in temporary_subgraph.closed:
+                    #the children of the candidate to the open set
+                    temporary_subgraph.open = temporary_subgraph.open.union(candidate_children)
             candidate_subgraphs.append(temporary_subgraph)
         else:
             del temporary_subgraph
@@ -105,8 +109,8 @@ def merge_subgraphs(graph:Graph, subgraph:Subgraph, candidate_subgraph:Subgraph,
     have been generated from it and raise the total quality measure.
 
     """
-    subgraph.open.union(candidate_subgraph.open)
-    subgraph.closed.union(candidate_subgraph.closed)
+    subgraph.open = subgraph.open.union(candidate_subgraph.open)
+    subgraph.closed = subgraph.closed.union(candidate_subgraph.closed)
     subgraph.calculate_quality(graph, threshold)
     return subgraph
 

@@ -1,5 +1,5 @@
 import math
-BASE = math.e
+BASE = 2
 from ordered_set import OrderedSet
 
 class Node(object):
@@ -173,8 +173,9 @@ import dataclasses
 @dataclasses.dataclass                    
 class Subgraph:
     open: set = dataclasses.field(default_factory=set) 
-    closed: set = dataclasses.field(default_factory=set) 
+    closed: OrderedSet = dataclasses.field(default_factory=OrderedSet) 
     quality: float = 0
+    can_be_expanded: bool = True        
 
     def calculate_quality(self, graph:Graph, threshold) -> float:
         score = 0
@@ -182,13 +183,15 @@ class Subgraph:
             for txId in self.closed:
                 current_node_feature_value = graph.nodes[txId].features[key]
                 td_val = TD(threshold, graph, key, current_node_feature_value)
-                score += td_val * (1 + value) - math.log(len(self.closed), BASE)
-        self.quality = score
-        return score
+                score += td_val * (1 + value) 
+        self.quality = score 
+        if len(self.closed) > 1:
+            self.quality = self.quality / (math.log(len(self.closed), BASE)**2)
+        return self.quality
     
 
     def merge(self, subgraph, graph:Graph, threshold):
-        self.open.union(subgraph.open)
-        self.closed.union(subgraph.closed)
+        self.open = self.open.union(subgraph.open)
+        self.closed = self.closed.union(subgraph.closed)
         self.calculate_quality(graph, threshold)
         
