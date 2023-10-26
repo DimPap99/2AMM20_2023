@@ -281,6 +281,6 @@ def discretize_per_column(df:pd.DataFrame, min_d, min_s, save_p=True):
             freq_per_feat[col] =  dict(collections.Counter(data.values.ravel()))
             print(freq_per_feat[col])
     if save_p:
-        pickle_data('frequencies.pkl', freq_per_feat)
-        pickle_data('discretized_df.pkl', df)
+        pickle_data('frequencies2.pkl', freq_per_feat)
+        pickle_data('discretized_df2.pkl', df)
     return freq_per_feat, df

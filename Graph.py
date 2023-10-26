@@ -1,7 +1,7 @@
 import math
 BASE = 2
 from ordered_set import OrderedSet
-
+import sys
 class Node(object):
     """
         The node class represents a single node (transaction) in the transactions graph
@@ -160,10 +160,16 @@ class Graph(object):
             return print_str
 
 def P(g:Graph, feature, feature_value):
-    counts:dict = g.feature_occurences[feature]
-    total_category_occurences = counts[feature_value]
-    total_samples = sum(g.feature_occurences[feature].values())
-    return total_category_occurences/total_samples
+    try:
+        counts:dict = g.feature_occurences[feature]
+        total_category_occurences = counts[feature_value]
+        total_samples = sum(g.feature_occurences[feature].values())
+        return total_category_occurences/total_samples
+
+    except Exception as e:
+        print(f"Couldnt find feature: {feature} and value {feature_value}")
+        sys.exit(0)
+    
 
 def TD(threshold, g:Graph, feature, feature_value):
     poss =  P(g, feature, feature_value)
