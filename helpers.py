@@ -70,12 +70,12 @@ def export_csv(file_path:str, data, isDataframe = False, headers=None, delimiter
         if isDataframe:
             data.to_csv(file_path, sep=delimiter, encoding=encoding)
         else:
-
-            if headers is not None:
-                writer = csv.writer(file_path, fieldnames=headers, delimiter=delimiter, quotechar=quoting)
-                writer.writeheader()
-            else:
-                writer = csv.writer(file_path, fieldnames=headers, delimiter=delimiter, quotechar=quoting)
+            with open(file_path, "w", newline='') as f:
+                writer = csv.writer(f, delimiter=delimiter, quoting=quoting)
+                if headers is not None:
+                    writer.writerow(headers)
+                
+                    
                 for row in data:
                     writer.writerow(row)
         if verbose:
@@ -217,10 +217,6 @@ def find_best_fitted_dist_for_features(feature_df:pd.DataFrame, _bins):
 
 
 
-
-# def quality_score(dataframe:pd.DataFrame, subgraph:set, weights_df:pd.DataFrame):
-#     pass
-
 def create_nx_graph(df_txs_features, df_txs_edgelist):
     all_ids = df_txs_features['txId']
 
@@ -273,7 +269,7 @@ def discretize_per_column(df:pd.DataFrame, min_d, min_s, save_p=True):
             feat_names=[col],
             dataframe=df[[col, "class"]],
             target="class",
-            target_continuous=False,
+            target_continuous=False, 
             )
             data = discretiser.transform(df[[col]])
             df[col] = discretiser.transform(df[[col]])

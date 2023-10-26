@@ -2,6 +2,8 @@ import math
 BASE = 2
 from ordered_set import OrderedSet
 import sys
+import hashlib
+
 class Node(object):
     """
         The node class represents a single node (transaction) in the transactions graph
@@ -182,7 +184,11 @@ class Subgraph:
     closed: OrderedSet = dataclasses.field(default_factory=OrderedSet) 
     quality: float = 0
     can_be_expanded: bool = True        
-
+    illicit_nodes: int = 0
+    licit_nodes: int = 0
+    unknown_nodes: int = 0
+    quality_without_size_penalty: float = 0
+    subgraph_id:str = ""
     def calculate_quality(self, graph:Graph, threshold) -> float:
         score = 0
         for key, value in graph.feature_importances.items():
@@ -190,7 +196,8 @@ class Subgraph:
                 current_node_feature_value = graph.nodes[txId].features[key]
                 td_val = TD(threshold, graph, key, current_node_feature_value)
                 score += td_val * (1 + value) 
-        self.quality = score 
+        self.quality = score
+        self.quality_without_size_penalty = score
         if len(self.closed) > 1:
             self.quality = self.quality / (math.log(len(self.closed), BASE)**2)
         return self.quality
@@ -201,3 +208,20 @@ class Subgraph:
         self.closed = self.closed.union(subgraph.closed)
         self.calculate_quality(graph, threshold)
         
+    def calculate_category_totals(self, graph:Graph):
+        c_il, c_l, c_u = 0, 0 ,0
+        for n in self.closed:
+            category = graph.nodes[n].label
+            if category == 1:
+                c_il += 1
+            elif category == 2:
+                c_l += 1
+            else:
+                c_u += 1
+        
+        self.illicit_nodes = c_il
+        self.licit_nodes = c_l
+        self.unknown_nodes = c_u
+    
+    def compute_subgraph_unique_id(self):
+        self.subgraph_id = hashlib.md5(str(self.closed).encode('utf-8')).hexdigest()

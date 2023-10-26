@@ -10,7 +10,7 @@ from helpers import bfs, get_class_pairs, choose_node_based_on_neighbors
 import numpy as np
 import networkx as nx
 from Graph import Graph, Subgraph
-from Beamsearch import beam_search
+from GraphMining import beam_search
 
 THRESHOLD = 0.25
 TIMESTEPS =[13]#, 42, 35, 32, 29, 22, 9 ,20]
@@ -46,7 +46,7 @@ while len(rejected_candidates) != 0:
             candidate_children:set = main_graph.nodes[candidate].children
             s.open = s.open.union(candidate_children)
             beam_candidates.append(s)
-
+    
     subgraph_results, new_rejected_candidates = beam_search(graph=main_graph, threshold=THRESHOLD, beam_width=4, initial_candidates=beam_candidates)
     interesting_graphs = interesting_graphs + subgraph_results
     rejected_candidates = new_rejected_candidates.difference(rejected_candidates)
