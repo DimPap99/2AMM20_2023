@@ -12,7 +12,7 @@ import networkx as nx
 from Graph import Graph, Subgraph
 from GraphMining import beam_search
 
-THRESHOLD = 0.25
+THRESHOLD = 0.2
 TIMESTEPS =[13]#, 42, 35, 32, 29, 22, 9 ,20]
 
 DATASET_BASE = "dataset"

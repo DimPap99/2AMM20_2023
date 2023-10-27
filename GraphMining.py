@@ -19,11 +19,11 @@ def create_initial_candidates(graph:Graph, threshold):
     return subgraph_candidates
 
 
-def mine_graphs(graph:Graph, threshold, beam_edge_width=3, beam_search_subgraphs=False, top_k=None, verbose=False, min_size=None):
+def mine_graphs(graph:Graph, threshold, beam_edge_width=3, beam_search_subgraphs=False, top_k=None, verbose=False, min_size=None, mine_unexplored=False, max_size=None):
     
     #run the first iteration
     subgraph_candidates =  create_initial_candidates(graph, threshold)
-    interesting_graphs, rejected_candidates = beam_search_edges(graph=graph, threshold=threshold, beam_width=4, initial_candidates=subgraph_candidates, verbose=verbose)
+    interesting_graphs, rejected_candidates = beam_search_edges(graph=graph, threshold=threshold, beam_width=beam_edge_width, initial_candidates=subgraph_candidates, verbose=verbose, mine_unexplored=mine_unexplored)
     subgraph_candidates = []
 
     while len(rejected_candidates) != 0:
@@ -36,7 +36,7 @@ def mine_graphs(graph:Graph, threshold, beam_edge_width=3, beam_search_subgraphs
                 s.open = s.open.union(candidate_children)
                 subgraph_candidates.append(s)
 
-        subgraph_results, new_rejected_candidates = beam_search_edges(graph=graph, threshold=threshold, beam_width=4, initial_candidates=subgraph_candidates, verbose=verbose)
+        subgraph_results, new_rejected_candidates = beam_search_edges(graph=graph, threshold=threshold, beam_width=4, initial_candidates=subgraph_candidates, verbose=verbose, mine_unexplored=True)
         interesting_graphs = interesting_graphs + subgraph_results
         rejected_candidates = new_rejected_candidates.difference(rejected_candidates)
         subgraph_candidates = []
@@ -47,8 +47,11 @@ def mine_graphs(graph:Graph, threshold, beam_edge_width=3, beam_search_subgraphs
     #filter graphs that are duplicate and also based on size
     for subgraph in interesting_graphs:
         if min_size is not None:
-                if len(subgraph.closed) < min_size:
-                    continue
+            if len(subgraph.closed) < min_size:
+                continue
+        if max_size is not None:
+            if len(subgraph.closed) > max_size:
+                continue
         subgraph.compute_subgraph_unique_id()
         if subgraph.subgraph_id not in unique_sub_graphs:
             

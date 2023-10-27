@@ -191,6 +191,7 @@ class Subgraph:
     subgraph_id:str = ""
     def calculate_quality(self, graph:Graph, threshold) -> float:
         score = 0
+        subgraph_sz = len(self.closed)
         for key, value in graph.feature_importances.items():
             for txId in self.closed:
                 current_node_feature_value = graph.nodes[txId].features[key]
@@ -199,7 +200,7 @@ class Subgraph:
         self.quality = score
         self.quality_without_size_penalty = score
         if len(self.closed) > 1:
-            self.quality = self.quality / (math.log(len(self.closed), BASE)**2)
+            self.quality = self.quality / (math.log(subgraph_sz, BASE)**2)
         return self.quality
     
 
