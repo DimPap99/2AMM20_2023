@@ -1,36 +1,175 @@
 
 
-Full Subgraph: Subgraph(open=set(), closed=OrderedSet([9976206, 99970754, 115140164, 115137030, 109358599, 99685447, 99635784, 107907216, 99942103, 107134551, 99941146, 115143840, 115148068, 100046630, 105157291, 100075246, 99634799, 99963957, 99683639, 107553401, 114050367]), quality=3.757514921578028, can_be_expanded=False, illicit_nodes=0, licit_nodes=17, unknown_nodes=4, quality_without_size_penalty=72.49167755057329, subgraph_id='47d1d84860b785b489a948630dfed625')
-size: 21 , quality: 3.757514921578028 and score without penalty: 72.49167755057329
-Illicit: 0, Licit: 17 and Unknown: 4
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([11302918, 100418240, 115084835, 98961059, 115122307, 114010662, 99923686, 114011110, 115228585, 114011114, 100087258, 114011092, 99921910, 113919191, 114011098]), quality=5.571006787291674, can_be_expanded=False, illicit_nodes=0, licit_nodes=14, unknown_nodes=1, quality_without_size_penalty=85.03470067607121, subgraph_id='61259a5c6d6a0be30dee4b8a6d1656d7')
+size: 15 , quality: 5.571006787291674Illicit: 0, Licit: 14 and Unknown: 1
 
 
 
-Full Subgraph: Subgraph(open=set(), closed=OrderedSet([3725934, 100152962, 100042051, 3076292, 99322056, 114776076, 108325518, 86328083, 99933118, 99679765, 102255550, 99932567, 99848344, 113974052, 99847077, 99912228, 100083813, 115228585, 99843177, 99934893, 99318383, 102591599, 774002, 99923773, 113920446]), quality=5.709269284114592, can_be_expanded=False, illicit_nodes=0, licit_nodes=23, unknown_nodes=2, quality_without_size_penalty=123.12267759699185, subgraph_id='ab10939e03012abdaa6704485a673f52')
-size: 25 , quality: 5.709269284114592 and score without penalty: 123.12267759699185
-Illicit: 0, Licit: 23 and Unknown: 2
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([39096544, 100138746, 98961059, 115228585, 99843177, 102273556, 99679765, 113919191, 100087258, 99911397, 99204390, 99153067, 99264270, 86327451]), quality=4.912392089719668, can_be_expanded=False, illicit_nodes=0, licit_nodes=10, unknown_nodes=4, quality_without_size_penalty=49.36180110049665, subgraph_id='fc9b6741866a616c5d4a98753d937b62')
+size: 14 , quality: 4.912392089719668Illicit: 0, Licit: 10 and Unknown: 4
 
 
 
-Full Subgraph: Subgraph(open=set(), closed=OrderedSet([4125827, 106950401, 98961059, 115228585, 100085868, 107731468, 98975347, 102273556, 113919191, 100138746, 99306876, 99911397, 99204390, 99153067, 99264270, 86327451, 52704607, 99919241, 99271100, 99204386, 99911395]), quality=4.128423080725687, can_be_expanded=False, illicit_nodes=1, licit_nodes=11, unknown_nodes=9, quality_without_size_penalty=68.97501959048127, subgraph_id='24577f090ec18cb0f5a6097cf6ed4217')
-size: 21 , quality: 4.128423080725687 and score without penalty: 68.97501959048127
-Illicit: 1, Licit: 11 and Unknown: 9
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([9976206, 99970754, 115140164, 115137030, 109358599, 99685447, 99635784, 107907216, 99942103, 107134551, 99941146, 115143840, 115148068, 100046630, 105157291, 100075246, 99634799, 99963957, 99683639, 107553401, 114050367]), quality=4.188292507881755, can_be_expanded=False, illicit_nodes=0, licit_nodes=17, unknown_nodes=4, quality_without_size_penalty=80.80243360453179, subgraph_id='47d1d84860b785b489a948630dfed625')
+size: 21 , quality: 4.188292507881755Illicit: 0, Licit: 17 and Unknown: 4
 
 
 
-Full Subgraph: Subgraph(open=set(), closed=OrderedSet([12427320, 99262368, 98961059, 113843396, 99923686, 99283623, 106359272, 115228585, 99262636, 99282990, 108274160, 99679765, 113919191, 113972920, 99264270, 86327451, 99911397, 99204390, 99153067, 99191170, 113972107, 99932567, 99263896, 99919241, 99932303, 100020401]), quality=5.2405562838812765, can_be_expanded=False, illicit_nodes=0, licit_nodes=18, unknown_nodes=8, quality_without_size_penalty=115.7855503802836, subgraph_id='dfbb14bf0876813392f05cb82a9feadd')
-size: 26 , quality: 5.2405562838812765 and score without penalty: 115.7855503802836
-Illicit: 0, Licit: 18 and Unknown: 8
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([5272048, 100084963, 100084740, 99348997, 99847077, 99923686, 99322056, 115228585, 100084846, 99318383, 98975376, 108274160, 98978293, 113919191, 100087258]), quality=5.038772115192635, can_be_expanded=False, illicit_nodes=0, licit_nodes=12, unknown_nodes=3, quality_without_size_penalty=76.91078021440347, subgraph_id='6d0a67e4d3dd541bb5c5807262541e33')
+size: 15 , quality: 5.038772115192635Illicit: 0, Licit: 12 and Unknown: 3
 
 
 
-Full Subgraph: Subgraph(open=set(), closed=OrderedSet([99365193, 99245152, 99365012, 99248324, 100081548, 99245134, 105183154, 99924836, 99248597, 100081543, 99932570, 109434293, 99251573, 113842238, 101501017, 99251657, 99251756, 99252078, 99917463, 99677492, 100800889, 99675435, 101063364, 115117684]), quality=4.002073131855665, can_be_expanded=False, illicit_nodes=1, licit_nodes=4, unknown_nodes=19, quality_without_size_penalty=84.13110566351969, subgraph_id='53b804f9ab66d9d763c26acb8d63c759')
-size: 24 , quality: 4.002073131855665 and score without penalty: 84.13110566351969
-Illicit: 1, Licit: 4 and Unknown: 19
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([9009788, 86328083, 99679765, 193173, 113972107, 99923773, 113920446, 113844733, 99632675, 3076292, 113838452, 99938238]), quality=5.581994004774349, can_be_expanded=False, illicit_nodes=0, licit_nodes=6, unknown_nodes=6, quality_without_size_penalty=43.99304368737254, subgraph_id='9b934cf636ee88b4407097dc45ad9dfe')
+size: 12 , quality: 5.581994004774349Illicit: 0, Licit: 6 and Unknown: 6
 
 
 
-Full Subgraph: Subgraph(open=set(), closed=OrderedSet([98972859, 99186849, 100045540, 99248973, 98978321, 99935915, 99851119, 113849736, 99190634, 99248964, 100085200, 113856611, 99636115, 113995905, 105238988, 115117665, 102249221, 101064166, 115209436, 99934968]), quality=3.818744886857239, can_be_expanded=False, illicit_nodes=3, licit_nodes=1, unknown_nodes=16, quality_without_size_penalty=71.33057425039432, subgraph_id='978b608812aa659dd1625bcbc271471d')
-size: 20 , quality: 3.818744886857239 and score without penalty: 71.33057425039432
-Illicit: 3, Licit: 1 and Unknown: 16
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([27210692, 113573569, 100084963, 99322056, 115228585, 100085868, 113598349, 99318383, 108274160, 100135569, 102273556, 113919191]), quality=4.5200191639531155, can_be_expanded=False, illicit_nodes=0, licit_nodes=12, unknown_nodes=0, quality_without_size_penalty=58.09108800901228, subgraph_id='2ee595f9365c84f5f5ef3a70efcc822d')
+size: 12 , quality: 4.5200191639531155Illicit: 0, Licit: 12 and Unknown: 0
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([14105577, 115084835, 98961059, 99679765, 113919191, 115228585, 99925247, 99911397, 99204390, 99153067, 99264270, 86327451]), quality=4.780872468756704, can_be_expanded=False, illicit_nodes=0, licit_nodes=8, unknown_nodes=4, quality_without_size_penalty=37.67921126426804, subgraph_id='33aa44e95f217617bf0b039dd1d130ff')
+size: 12 , quality: 4.780872468756704Illicit: 0, Licit: 8 and Unknown: 4
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([98961101, 113673476, 98974981, 114010793, 98961098, 98975118, 114010799, 98961168, 99322898, 98974964, 113607061, 113615126, 105868315, 106197309, 114010654]), quality=4.03651247591539, can_be_expanded=False, illicit_nodes=0, licit_nodes=9, unknown_nodes=6, quality_without_size_penalty=61.61249541962217, subgraph_id='e4444bde2cfdecd1cbf55f3c7aafed98')
+size: 15 , quality: 4.03651247591539Illicit: 0, Licit: 9 and Unknown: 6
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([4392723, 98961059, 99923686, 115228585, 99679765, 98960949, 113919191, 35541880, 99599766, 100087258, 105236382, 99911397, 99204390, 99153067, 99264270, 86327451]), quality=5.198105458711977, can_be_expanded=False, illicit_nodes=0, licit_nodes=9, unknown_nodes=7, quality_without_size_penalty=62.209195805455074, subgraph_id='f26f59215b152847f93f035596c64d1f')
+size: 16 , quality: 5.198105458711977Illicit: 0, Licit: 9 and Unknown: 7
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([98975011, 98975008, 98975075, 99264228, 102638634, 114010799, 99254354, 99285078, 103323962, 106197309, 99220637, 98975012]), quality=4.084278515808216, can_be_expanded=False, illicit_nodes=0, licit_nodes=9, unknown_nodes=3, quality_without_size_penalty=52.49096831430916, subgraph_id='ff600df135c9b532755937549aa25363')
+size: 12 , quality: 4.084278515808216Illicit: 0, Licit: 9 and Unknown: 3
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([98961172, 113613281, 105384389, 114010662, 103968013, 99255567, 99636464, 104404689, 105925907, 103540692, 99293471, 106038974]), quality=3.849044653894366, can_be_expanded=False, illicit_nodes=0, licit_nodes=10, unknown_nodes=2, quality_without_size_penalty=49.46775304033093, subgraph_id='68e9745af0d63ed6be44d9c821e5c818')
+size: 12 , quality: 3.849044653894366Illicit: 0, Licit: 10 and Unknown: 2
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([12427320, 99262368, 98961059, 113843396, 99923686, 99283623, 106359272, 115228585, 99262636, 99282990, 108274160, 99679765, 113919191, 113972920, 99264270, 86327451, 99911397, 99204390, 99153067, 99191170, 113972107, 99932567, 99263896, 99919241, 100075243, 99932303]), quality=5.448541990544201, can_be_expanded=False, illicit_nodes=0, licit_nodes=18, unknown_nodes=8, quality_without_size_penalty=111.49140491515116, subgraph_id='febbcd73eaf35a8a3c82e9b81608b9ed')
+size: 26 , quality: 5.448541990544201Illicit: 0, Licit: 18 and Unknown: 8
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([3725934, 100152962, 100042051, 3076292, 99322056, 114776076, 108325518, 86328083, 99933118, 99679765, 102255550, 99932567, 99848344, 113974052, 99847077, 99912228, 100083813, 115228585, 99843177, 99934893, 99318383, 102591599, 774002, 99923773, 113920446, 99241985, 100059329, 101411140, 99847236, 99262612, 99644762, 99261661, 100069286, 99912236, 100078572, 99217077, 99932854, 106741877, 2064886, 113842169, 113979460, 100081543, 100468040, 99919890, 115227413, 99849942, 99932570, 113997278, 174370, 100421437, 115257849]), quality=8.424889357653255, can_be_expanded=False, illicit_nodes=0, licit_nodes=43, unknown_nodes=8, quality_without_size_penalty=271.08268794409537, subgraph_id='3f905f0ff8249b2b3af3ba57132a0343')
+size: 51 , quality: 8.424889357653255Illicit: 0, Licit: 43 and Unknown: 8
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([99191735, 99206910, 99191731, 99192684, 99220262, 99633307, 99249025, 102584101, 99192682, 99911404, 99842864, 115075506, 113593143, 108489047]), quality=3.2751988027366297, can_be_expanded=False, illicit_nodes=5, licit_nodes=0, unknown_nodes=9, quality_without_size_penalty=47.47712300556951, subgraph_id='3dadee1ec794aaf071df3bbb16363638')
+size: 14 , quality: 3.2751988027366297Illicit: 5, Licit: 0 and Unknown: 9
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([4125827, 106950401, 98961059, 115228585, 100085868, 107731468, 98975347, 102273556, 113919191, 100138746, 99306876, 99911397, 99204390, 99153067, 99264270, 86327451, 52704607, 99919241, 99271100, 99204386, 99911395]), quality=4.302828536731147, can_be_expanded=False, illicit_nodes=1, licit_nodes=11, unknown_nodes=9, quality_without_size_penalty=71.88887301815586, subgraph_id='24577f090ec18cb0f5a6097cf6ed4217')
+size: 21 , quality: 4.302828536731147Illicit: 1, Licit: 11 and Unknown: 9
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([98975353, 113603256, 98975347, 99171416, 99932567, 99252085, 99191414, 113865384, 99171415, 99912236, 99932303, 100020401, 99912229]), quality=3.64267618333029, can_be_expanded=False, illicit_nodes=2, licit_nodes=4, unknown_nodes=7, quality_without_size_penalty=49.88009061003007, subgraph_id='12798a4fcd9dfb2a1295202ea69993e4')
+size: 13 , quality: 3.64267618333029Illicit: 2, Licit: 4 and Unknown: 7
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([9026523, 113979460, 100468040, 115123115, 113977809, 115087634, 99886072, 100421437, 99933118, 99934810, 99964190, 33374616, 100089424, 102551288]), quality=5.359911617324395, can_be_expanded=False, illicit_nodes=0, licit_nodes=12, unknown_nodes=2, quality_without_size_penalty=77.69701886250792, subgraph_id='944dc784dc851b345946f11bbbe8353c')
+size: 14 , quality: 5.359911617324395Illicit: 0, Licit: 12 and Unknown: 2
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([98902519, 99245152, 99153129, 99248324, 99912228, 99153126, 99245134, 105183154, 115059310, 99912157, 99932570, 101917209, 101395688, 107034224]), quality=2.9943325375440963, can_be_expanded=False, illicit_nodes=0, licit_nodes=9, unknown_nodes=5, quality_without_size_penalty=43.405699246645675, subgraph_id='14bb0f2b82b022ccae85e3f36241b68c')
+size: 14 , quality: 2.9943325375440963Illicit: 0, Licit: 9 and Unknown: 5
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([98975297, 99322056, 99216385, 99216378, 99914115, 99216383, 92559168, 99914114, 99917764, 108333323, 99943485, 106159662, 99934968]), quality=4.201867925932219, can_be_expanded=False, illicit_nodes=1, licit_nodes=1, unknown_nodes=11, quality_without_size_penalty=54.002222254760845, subgraph_id='972ef517fa0197a8b6e461f86ca799dd')
+size: 13 , quality: 4.201867925932219Illicit: 1, Licit: 1 and Unknown: 11
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([98976210, 99324066, 98976404, 99323885, 98976408, 113949314, 113696801, 100493286, 99328312, 99857962, 99938602, 106991848, 99857956]), quality=3.218646668153738, can_be_expanded=False, illicit_nodes=0, licit_nodes=0, unknown_nodes=13, quality_without_size_penalty=44.073746709596755, subgraph_id='08ecf8e27efa44672ed231acc1be26a8')
+size: 13 , quality: 3.218646668153738Illicit: 0, Licit: 0 and Unknown: 13
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([98972828, 98972819, 101167780, 108762822, 113991175, 98975049, 99191626, 99246927, 99190640, 100106935, 99246921, 99841131, 99246930, 100012549, 109523720, 99251759, 113995905, 99251909, 107034224]), quality=4.089057046169889, can_be_expanded=False, illicit_nodes=2, licit_nodes=3, unknown_nodes=14, quality_without_size_penalty=73.78657707583248, subgraph_id='3010427a6136634bc978d4318799e541')
+size: 19 , quality: 4.089057046169889Illicit: 2, Licit: 3 and Unknown: 14
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([99458610, 99495386, 99458611, 99529912, 99507561, 99458616, 113898272, 98925890, 98925888, 113996039, 113589659, 113700309, 99912236, 99912229]), quality=2.9229232702108856, can_be_expanded=False, illicit_nodes=0, licit_nodes=3, unknown_nodes=11, quality_without_size_penalty=42.37055397055323, subgraph_id='e1d9748caeae77d98ebd54c4d9af362e')
+size: 14 , quality: 2.9229232702108856Illicit: 0, Licit: 3 and Unknown: 11
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([98960992, 98961001, 98961003, 98961059, 99976142, 99911397, 99204390, 99153067, 99264270, 99679765, 86327451, 99204386, 99911395, 99919241, 99271100, 99932567, 99191170, 113972107, 99932303, 113825879, 99263896, 99925051, 99264266, 100020401]), quality=4.412737030924745, can_be_expanded=False, illicit_nodes=1, licit_nodes=7, unknown_nodes=16, quality_without_size_penalty=92.76403333537209, subgraph_id='5060ef1b022e7a0e12e58cd5085f1935')
+size: 24 , quality: 4.412737030924745Illicit: 1, Licit: 7 and Unknown: 16
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([99365193, 99245152, 99365012, 99248324, 100081548, 99245134, 105183154, 99924836, 99248597, 100081543, 99932570, 109434293, 99251573, 113842238, 101501017, 99251657, 99251756, 99252078, 99917463, 99677492, 100800889, 99675435, 101063364, 115117684]), quality=4.249828143950864, can_be_expanded=False, illicit_nodes=1, licit_nodes=4, unknown_nodes=19, quality_without_size_penalty=89.3393820778947, subgraph_id='53b804f9ab66d9d763c26acb8d63c759')
+size: 24 , quality: 4.249828143950864Illicit: 1, Licit: 4 and Unknown: 19
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([98972885, 99171416, 105943204, 99846584, 99252085, 99191414, 99171415, 113865384, 99912236, 99912229, 99846583, 99974346]), quality=3.525646001262737, can_be_expanded=False, illicit_nodes=2, licit_nodes=2, unknown_nodes=8, quality_without_size_penalty=45.31144774369817, subgraph_id='69b33c603453e0585228f98dc6511db7')
+size: 12 , quality: 3.525646001262737Illicit: 2, Licit: 2 and Unknown: 8
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([86327451, 99263896, 99191170, 113972107, 99932567, 100075243, 99636012, 115125199, 99131088, 107699127, 99128315, 82152955, 100042051, 99912228, 99636003, 54744267, 99146164, 99679765, 99632674, 3076292, 99932303, 115087634, 115131672, 99131085, 100020401]), quality=5.399860184600291, can_be_expanded=False, illicit_nodes=0, licit_nodes=12, unknown_nodes=13, quality_without_size_penalty=110.49524797116271, subgraph_id='4ecc3c6be442438701b7f477fc72a888')
+size: 25 , quality: 5.399860184600291Illicit: 0, Licit: 12 and Unknown: 13
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([99191725, 99191648, 99248619, 99192029, 108459803, 99916850, 99932570, 103022609, 99813108, 115257849, 99932567, 99932303, 100020401]), quality=3.736791781630327, can_be_expanded=False, illicit_nodes=2, licit_nodes=3, unknown_nodes=8, quality_without_size_penalty=48.02508405035, subgraph_id='0e3b374a07e8d0b8bc9dc2cfc76c307f')
+size: 13 , quality: 3.736791781630327Illicit: 2, Licit: 3 and Unknown: 8
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([99129103, 113979460, 99129113, 100490984, 115257849, 99632683, 101443950, 99212640, 113996039, 95621818, 99812663, 100038953, 99635900, 115087634, 100038948, 33374616, 99635905, 107942565, 102551288]), quality=4.92613454401928, can_be_expanded=False, illicit_nodes=0, licit_nodes=13, unknown_nodes=6, quality_without_size_penalty=88.89154690533458, subgraph_id='ecdea332dd07d0f56f503e9e282a2cde')
+size: 19 , quality: 4.92613454401928Illicit: 0, Licit: 13 and Unknown: 6
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([98972859, 99186849, 100045540, 99248973, 98978321, 99248964, 113849736, 99190634, 99935915, 113856611, 99851119, 99636115, 113995905, 105238988, 115087634, 115117665, 102249221, 101064166, 115209436, 100085200, 99934968]), quality=3.9770920146032487, can_be_expanded=False, illicit_nodes=3, licit_nodes=2, unknown_nodes=16, quality_without_size_penalty=76.72785815325516, subgraph_id='600fb7263e51ffe82dce8234f33160bd')
+size: 21 , quality: 3.9770920146032487Illicit: 3, Licit: 2 and Unknown: 16
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([35541880, 19220178, 98961059, 113919191, 99911397, 99204390, 115228585, 99153067, 99264270, 86327451, 99204386, 99911395, 99271100, 99932567, 99932303, 99191170, 99925051, 113972107, 100020401, 113825879, 99263896, 99942130]), quality=4.308013132290111, can_be_expanded=False, illicit_nodes=1, licit_nodes=7, unknown_nodes=14, quality_without_size_penalty=83.11213804533786, subgraph_id='4a5d94b72fb6a8578c865f3703a25f97')
+size: 22 , quality: 4.308013132290111Illicit: 1, Licit: 7 and Unknown: 14
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([99191170, 99131088, 107699127, 99128315, 82152955, 113972107, 99636012, 115125199, 99131085, 100042051, 99912228, 54744267, 99146164, 99679765, 99632674, 99636003, 3076292, 115087634, 115131672, 108489420, 99129103, 99318323, 99932567, 113979460, 100490984, 99632683, 115257849, 101443950, 99932303, 99129113, 99212640, 113996039, 100020401, 95621818, 99635900, 99812663, 33374616, 102551288]), quality=6.690515654095903, can_be_expanded=False, illicit_nodes=0, licit_nodes=21, unknown_nodes=17, quality_without_size_penalty=184.26177341376442, subgraph_id='5b436ec094e064d278bbc5bb1eb48693')
+size: 38 , quality: 6.690515654095903Illicit: 0, Licit: 21 and Unknown: 17
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([99217798, 99923224, 99217802, 6709491, 113979460, 99218156, 100421437, 99252291, 99290876, 99291298, 100079127, 99291473, 9848398, 99940600, 102586006, 101411180, 100040934, 99944374]), quality=6.159619667142973, can_be_expanded=False, illicit_nodes=0, licit_nodes=4, unknown_nodes=14, quality_without_size_penalty=107.10515769662052, subgraph_id='a8303b02d3c8ac18489ea2ee1571cca8')
+size: 18 , quality: 6.159619667142973Illicit: 0, Licit: 4 and Unknown: 14
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([99128315, 100042051, 99912228, 99146164, 99679765, 54744267, 115125199, 99912157, 99632674, 115087634, 3076292, 115131672, 108489420, 99129103, 99632667, 113979460, 100490984, 99632683, 101443950, 99129113, 115257849, 99212640, 113996039, 95621818, 99635900, 99812663, 33374616, 102551288]), quality=6.102066074126381, can_be_expanded=False, illicit_nodes=0, licit_nodes=18, unknown_nodes=10, quality_without_size_penalty=141.0227825539038, subgraph_id='07c97564694217f2042ab419087b9a08')
+size: 28 , quality: 6.102066074126381Illicit: 0, Licit: 18 and Unknown: 10
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([99637439, 113938753, 110240563, 113979460, 99637240, 100421437, 115226174, 110240560, 70827790, 101063355, 100073812, 113939771, 115087634, 86979962, 100073435, 99938686, 105055750, 101504205, 78738277, 99924008]), quality=5.6750574430546195, can_be_expanded=False, illicit_nodes=0, licit_nodes=8, unknown_nodes=12, quality_without_size_penalty=106.00475242801781, subgraph_id='851326b4211875d5bd809a9856c35c8f')
+size: 20 , quality: 5.6750574430546195Illicit: 0, Licit: 8 and Unknown: 12
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([99218678, 99923224, 99218690, 99813677, 99332312, 104413426, 40535169, 99932570, 115225562, 99812659, 99637885, 99812473, 100421437, 113979460, 100042630, 99931072]), quality=5.498045027262978, can_be_expanded=False, illicit_nodes=0, licit_nodes=6, unknown_nodes=10, quality_without_size_penalty=87.96872043620765, subgraph_id='1915dfcb72bf7e434ed693b6a183f9a8')
+size: 16 , quality: 5.498045027262978Illicit: 0, Licit: 6 and Unknown: 10
 

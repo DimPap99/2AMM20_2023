@@ -1,0 +1,20 @@
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([44314694, 299044145, 257834771, 299334612, 299170456, 298733449, 299044144, 299177986, 299175875, 299178564, 255645900, 260075732, 299327873, 299327316, 234288633]), quality=3.4950925627041736, can_be_expanded=False, illicit_nodes=5, licit_nodes=0, unknown_nodes=10, quality_without_size_penalty=53.348373328619985, subgraph_id='4447d0e9556cf556913b5d7d30877b3a')
+size: 15 , quality: 3.4950925627041736Illicit: 5, Licit: 0 and Unknown: 10
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([281192117, 298689670, 298703191, 299044856, 296482541, 298687023, 299327861, 293444284, 299089256, 299048710, 299043430, 299043416, 230335481, 299188203, 301216951, 299188261]), quality=3.8136609112267728, can_be_expanded=False, illicit_nodes=2, licit_nodes=0, unknown_nodes=14, quality_without_size_penalty=61.018574579628364, subgraph_id='c305d441928239a1688ebd8c985cf6bb')
+size: 16 , quality: 3.8136609112267728Illicit: 2, Licit: 0 and Unknown: 14
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([119906067, 299187233, 298721426, 299083083, 298782358, 298721403, 239555809, 298956935, 299114624, 298958918, 298979974, 301230167, 299017082, 82768156, 299699653, 300182475, 299191307, 239555677, 269906974, 72444066, 299191304, 298979992, 298711610, 298711626, 295261009, 298979993, 232113996, 234642050]), quality=5.206893289900715, can_be_expanded=False, illicit_nodes=0, licit_nodes=8, unknown_nodes=20, quality_without_size_penalty=120.33474749094323, subgraph_id='6a93d886965c160ca75f4446d7ff6ab1')
+size: 28 , quality: 5.206893289900715Illicit: 0, Licit: 8 and Unknown: 20
+
+
+
+Full Subgraph: Subgraph(open=set(), closed=OrderedSet([298799090, 299048090, 298799355, 299191676, 301194246, 298799359, 298935430, 298799769, 299191405, 239555816, 300420702, 299178454]), quality=3.171709511757971, can_be_expanded=False, illicit_nodes=0, licit_nodes=3, unknown_nodes=9, quality_without_size_penalty=37.9579636508311, subgraph_id='0934c29a206f4ca11c26eb33ba9987f8')
+size: 12 , quality: 3.171709511757971Illicit: 0, Licit: 3 and Unknown: 9
+
