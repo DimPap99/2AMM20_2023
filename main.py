@@ -18,6 +18,9 @@ from helpers import export_csv, pickle_data
 
 MINED_GRAPHS = "Mined_Subgraphs"
 DATA_DIRECTORY = "pickled_objs"
+os.makedirs(DATA_DIRECTORY, exist_ok=True)
+os.makedirs(MINED_GRAPHS, exist_ok=True)
+
 NUM_OF_PROCESSES = 4
 graph_dict:dict = load_pickled_data(os.path.join(DATA_DIRECTORY, "working_graphs_dict3.pkl"))
 AVAILABLE_TIMESTEPS = list(graph_dict.keys())
@@ -57,7 +60,7 @@ if __name__ == '__main__':
             csv_data.extend([l])
         for s in result[1]:
             result_subgraphs.append(s)
-            
+
     csv_path = os.path.join(MINED_GRAPHS, f"Results_sz__min{MIN_SUBGRAPH_SIZE}_max_{MAX_SIZE}_thresh_{str(THRESHOLD).replace('.','_')}_{MINE_UNEXPLORED}.csv")
     sub_pkl_path = os.path.join(DATA_DIRECTORY, f"Subgraphs__min{MIN_SUBGRAPH_SIZE}_max_{MAX_SIZE}_thresh_{str(THRESHOLD).replace('.','_')}_{MINE_UNEXPLORED}.pkl")
     export_csv(file_path=csv_path,  data=csv_data, isDataframe=False, headers=_headers)

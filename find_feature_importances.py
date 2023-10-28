@@ -9,7 +9,8 @@ from joblib import parallel_backend
 
 DATASET_BASE = "dataset"
 PICKLED_OBJS = "pickled_objs"
-
+os.makedirs(DATASET_BASE, exist_ok=True)
+os.makedirs(PICKLED_OBJS, exist_ok=True)
 txs_classes:pd.DataFrame = read_csv(os.path.join(DATASET_BASE, "elliptic_txs_classes.csv"), ret_Dataframe=True)
 txs_edgelist:pd.DataFrame = read_csv(os.path.join(DATASET_BASE, "elliptic_txs_edgelist.csv"), ret_Dataframe=True)
 txs_features:pd.DataFrame =  read_csv(os.path.join(DATASET_BASE, "elliptic_txs_features.csv"), ret_Dataframe=True)
